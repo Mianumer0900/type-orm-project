@@ -1,0 +1,41 @@
+{
+  "name": "type-orm",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "nodemon",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "typeorm": "node --loader ts-node/esm node_modules/typeorm/cli.js",
+    "migration:create": "node --loader ts-node/esm node_modules/typeorm/cli.js migration:create -- -d ./src/config/data-source.ts",
+    "migration:generate": "node --loader ts-node/esm node_modules/typeorm/cli.js migration:generate src/migration/%npm_config_name% -d ./src/config/data-source.ts",
+    "migration:run": "npm run typeorm migration:run -- -d src/config/data-source.ts",
+    "migration:revert": "npm run typeorm migration:revert -- -d .src/config/data-source.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.2",
+    "dotenv": "^17.2.2",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "pg": "^8.16.3",
+    "reflect-metadata": "^0.2.2",
+    "typeorm": "^0.3.27"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^6.0.0",
+    "@types/express": "^5.0.3",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/node": "^24.5.2",
+    "nodemon": "^3.1.10",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.2"
+  }
+}
