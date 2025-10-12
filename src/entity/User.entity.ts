@@ -2,16 +2,13 @@ import {
   Column,
   CreateDateColumn,
   Entity,
+  JoinColumn,
+  OneToOne,
   PrimaryGeneratedColumn,
-  UpdateDateColumn,
 } from "typeorm";
-
-
-enum userRoles {
-  ADMIN = "admin",
-  PATIENT = "patient",
-  DOCTOR = "doctor",
-}
+import { userRoles } from "../enum/user.roles";
+import { Doctor } from "../entity/Doctor.entity";
+import { Patient } from "../entity/Patient.entity";
 
 @Entity({ name: "users" })
 export class User {
@@ -35,14 +32,20 @@ export class User {
 
   @Column({ default: false })
   isVerified: boolean;
-  
-  // New Column Addedd
-  @Column({ type: "int", nullable: true })
-  age: number | null;
+
+  @Column({ nullable: true })
+  otpCode: number;
 
   @CreateDateColumn()
-  createdAt: Date;
+  otpGeneratedAt: Date;
 
-  @UpdateDateColumn()
-  updatedAt: Date;
+  @CreateDateColumn()
+  otpExpiredAt: Date;
+
+
+  @OneToOne(() => Patient, (Patient) => Patient.user)
+  patient: Patient;
+
+  @OneToOne(() => Doctor, (Doctor) => Doctor.user)
+  doctor: Doctor;
 }

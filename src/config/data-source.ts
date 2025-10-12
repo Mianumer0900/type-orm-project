@@ -11,7 +11,7 @@ export const AppDataSource = new DataSource({
     port: 5432,
     username: DB_USER || "postgres",
     password: DB_PASSWORD || "MianUmer1998",
-    database: DB_DATABASE || "mern_crud",
+    database: DB_DATABASE || "assignment",
     synchronize: false,
     logging: false,
     entities:["src/entity/**/*.ts"],

@@ -1,5 +1,5 @@
 import { Response, Request } from "express";
-import { userRepository } from "../repository/index.js";
+import { userRepository } from "../repository/index";
 
 export class userController {
   static async getAllUsers(req: Request, res: Response) {

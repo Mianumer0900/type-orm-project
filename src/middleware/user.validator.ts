@@ -1,8 +1,7 @@
 import { plainToClass } from "class-transformer";
 import { validate, Validate, ValidationError } from "class-validator";
 import { Request, Response, NextFunction } from "express";
-import { UserDto } from "../dto/user.dto.js";
-import { error } from "console";
+import { UserDto } from "../dto/user.dto";
 
 export const userValaditor = async (
   req: Request,

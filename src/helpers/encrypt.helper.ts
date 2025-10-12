@@ -1,5 +1,5 @@
-import jwt from "jsonwebtoken"
-import bcrypt from "bcrypt";
+import * as jwt from "jsonwebtoken";
+import * as bcrypt from "bcrypt";
 import * as dotenv from "dotenv";
 dotenv.config();
 
@@ -26,7 +26,7 @@ export default class Encrypt {
     return await jwt.sign(payload,JWT_SECRET,{expiresIn:'7d'})
   }
 
-  static async verifyToken(token: string): Promise<any>{
+  static verifyToken(token: string): any{
     try{
         return jwt.verify(token,JWT_SECRET)
     } catch(error){

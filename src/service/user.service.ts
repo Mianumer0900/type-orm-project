@@ -1,7 +1,6 @@
-
 import { Repository } from "typeorm";
-import { User } from "../entity/index.js";
-import Encrypt from "../helpers/encrypt.helper.js";
+import { User } from "../entity/User.entity";
+import Encrypt from "../helpers/encrypt.helper";
 
 export class UserService {
   constructor(private userRepository: Repository<User>) {}

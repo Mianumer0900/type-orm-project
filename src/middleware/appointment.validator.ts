@@ -1,16 +1,15 @@
 import { plainToClass } from "class-transformer";
 import { validate, ValidationError } from "class-validator";
 import { NextFunction, Request, Response } from "express";
-import { LoginDto } from "../dto/login.dto";
+import { AppointmentDto } from "../dto/Appointment.dto";
 
-export const loginValidator = async (
+export const appointmentValidator = async (
   req: Request,
   res: Response,
   next: NextFunction
 ) => {
-  const loginDto = plainToClass(LoginDto, req.body); 
-  const errors: ValidationError[] = await validate(loginDto); 
-
+  const appointmentDto = plainToClass(AppointmentDto, req.body);
+  const errors: ValidationError[] = await validate(appointmentDto);
   if (errors.length > 0) {
     const errorMessages = errors
       .map((error) => Object.values(error.constraints || {}))
