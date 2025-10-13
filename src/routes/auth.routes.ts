@@ -8,7 +8,6 @@ router.post("/login", loginValidator, AuthController.loginUser);
 router.post("/register", userValaditor, AuthController.registerUser);
 router.post("/verify-otp", AuthController.verifyOtp);
 router.post("/forgot-password", AuthController.forgotPassword);
-router.post("/verify-forgot-otp", AuthController.verifyForgotOtp);
 router.post("/reset-password", AuthController.resetPassword);
 
 export { router as AuthRouter };
