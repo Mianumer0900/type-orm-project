@@ -5,6 +5,7 @@ import {
   JoinColumn,
   OneToOne,
   PrimaryGeneratedColumn,
+  Timestamp,
 } from "typeorm";
 import { userRoles } from "../enum/user.roles";
 import { Doctor } from "../entity/Doctor.entity";
@@ -36,11 +37,11 @@ export class User {
   @Column({ nullable: true })
   otpCode: number;
 
-  @CreateDateColumn()
-  otpGeneratedAt: Date;
+  @CreateDateColumn({type: "timestamp" , nullable: true})
+  otpGeneratedAt: Date | null;;
 
-  @CreateDateColumn()
-  otpExpiredAt: Date;
+  @CreateDateColumn({type: "timestamp" , nullable: true})
+  otpExpiredAt: Date | null;;
 
 
   @OneToOne(() => Patient, (Patient) => Patient.user)

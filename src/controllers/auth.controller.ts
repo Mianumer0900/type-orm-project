@@ -31,7 +31,9 @@ export class AuthController {
     if (!user) return res.status(404).json({ message: "User not found" });
 
     const isValid = OtpHelper.isOtpValid(user, Number(otp));
+    console.log(isValid);
     if (!isValid)
+      
       return res.status(400).json({ message: "Invalid or expired OTP" });
 
     const token = await Encrypt.generateToken({ id: user.id });
